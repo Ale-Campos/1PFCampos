@@ -7,6 +7,7 @@ import { IAlumn } from 'src/data/Alumns';
   styleUrls: ['./alumns.component.scss']
 })
 export class AlumnsComponent {
+  selectedAlumn: IAlumn|null = null;
   dataSource: IAlumn[]= [
     {
       id: "1",
@@ -34,4 +35,12 @@ export class AlumnsComponent {
     }
   ];
   columns = ['id', 'name', 'lastName', 'course', 'actions']
+
+
+  public getAlumn(id:string): void {
+    let alumn = this.dataSource.find(alumn => alumn.id = id);
+    if(alumn){
+      this.selectedAlumn = alumn;
+    } 
+  }
 }

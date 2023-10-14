@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlumnsComponent } from './alumns.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 
 
@@ -15,8 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     MatTableModule,
-    MatIconModule,
-    MatButtonModule
+    SharedModule
   ],
   exports: [AlumnsComponent]
 })
