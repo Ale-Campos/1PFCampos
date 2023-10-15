@@ -13,12 +13,12 @@
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Nombre</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        <td mat-cell *matCellDef="let element">{{ element | fullname }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef>Apellido</th>
-        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
       </ng-container>
 
       <ng-container matColumnDef="course">
@@ -32,7 +32,7 @@
             mat-fab
             color="primary"
             aria-label="Example icon button with a delete icon"
-            value="{{element.id}}"
+            (click)="alumnDetails(element)"
           >
             <mat-icon>visibility</mat-icon>
           </button>
@@ -40,7 +40,7 @@
             mat-fab
             color="accent"
             aria-label="Example icon button with a delete icon"
-            value="{{element.id}}"
+            (click)="alumnEdit(element)"
           >
             <mat-icon>edit</mat-icon>
           </button>
@@ -49,6 +49,7 @@
             color="warn"
             aria-label="Example icon button with a delete icon"
             value="{{element.id}}"
+            (click)="alumnDelete(element.id)"
           >
             <mat-icon>delete</mat-icon>
           </button>
@@ -58,4 +59,13 @@
       <tr mat-header-row *matHeaderRowDef="columns"></tr>
       <tr mat-row *matRowDef="let row; columns: columns"></tr>
     </table>
+  </div>
+  <div class="btn-create-container">
+    <button class="btn-create"
+      mat-raised-button
+      color="primary"
+      (click)="alumnCreate()"
+    >
+      <mat-icon>add</mat-icon> Crear Alumno
+    </button>
   </div>

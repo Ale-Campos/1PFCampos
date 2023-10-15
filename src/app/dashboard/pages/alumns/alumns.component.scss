@@ -2,6 +2,14 @@
   width: 50vw;
   margin-top: 10px;
   margin: auto;
+  table {
+    button {
+      width: 40px;
+      height: 40px;
+      margin: 2px;
+    }
+    
+  }
 }
 
 th {
@@ -12,8 +20,10 @@ td {
     text-align: center;
 }
 
-button {
-  width: 40px;
-  height: 40px;
-  margin: 2px;
+.btn-create {
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
 }
+
+

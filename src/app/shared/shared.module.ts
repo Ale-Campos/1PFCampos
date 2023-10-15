@@ -7,11 +7,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FullnamePipe } from './pipes/fullname.pipe';
+import { MatTableModule } from '@angular/material/table';
+import { FormErrorsPipe } from './pipes/form-errors.pipe';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FullnamePipe,
+    FormErrorsPipe
+  ],
   imports: [
     CommonModule
   ],
@@ -19,10 +25,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatTableModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    FullnamePipe,
+    FormErrorsPipe
    ]
 })
 export class SharedModule { }

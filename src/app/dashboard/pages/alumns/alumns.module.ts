@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlumnsComponent } from './alumns.component';
-import { MatTableModule } from '@angular/material/table';
-import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AlumnsDialgoComponent } from './components/alumns-dialgo/alumns-dialgo.component';
 
 
 
 
 @NgModule({
   declarations: [
-    AlumnsComponent
+    AlumnsComponent,
+    AlumnsDialgoComponent
   ],
   imports: [
     CommonModule,
-    MatTableModule,
     SharedModule
   ],
   exports: [AlumnsComponent]

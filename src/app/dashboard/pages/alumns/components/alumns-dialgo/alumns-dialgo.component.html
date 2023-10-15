@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>
+  {{ data ? (data.edit ? "Editar" : "Detalle") : "Crear" }}
+</h1>
+<div mat-dialog-content>
+  <form [formGroup]="alumnForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col">
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input formControlName="name" matInput />
+              <mat-error>
+                {{ alumnForm.get("name")?.errors | formErrors }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field>
+              <mat-label>Apellido</mat-label>
+              <input formControlName="lastName" matInput />
+              <mat-error>
+                {{ alumnForm.get("lastName")?.errors | formErrors }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Email</mat-label>
+              <input formControlName="email" matInput />
+              <mat-error>
+                {{ alumnForm.get("email")?.errors | formErrors }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col" style="text-align: center">
+            <mat-form-field>
+              <mat-label>Curso</mat-label>
+              <input formControlName="course" matInput />
+              <mat-error>
+                {{ alumnForm.get("course")?.errors | formErrors }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>
+    {{ data ? (data.edit ? "Cancelar" : "Cerrar") : "Cancelar" }}
+  </button>
+  <ng-container *ngIf="!data || data.edit">
+    <button mat-button (click)="onSubmit()">Guardar</button>
+  </ng-container>
+  
+</div>

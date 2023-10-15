@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AlumnsModule } from './pages/alumns/alumns.module';
-import { SharedModule } from '../shared/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
