@@ -1,11 +1,10 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav cointainer-fluid" mode="over">
-    <div class="row">
-      <ul class="col">
-        <li><a href="#">Alumnos</a></li>
-        <li><a href="#">Cursos</a></li>
-      </ul>
-    </div>
+    <mat-nav-list>
+      <mat-list-item role="listitem" routerLink="home" ><a>Home</a></mat-list-item>
+      <mat-list-item role="listitem" routerLink="alumns" ><a>Alumns</a></mat-list-item>
+      <mat-list-item role="listitem" routerLink="courses" ><a>Courses</a></mat-list-item>
+    </mat-nav-list>    
   </mat-drawer>
 
   <div class="example-sidenav-content">
@@ -21,6 +20,6 @@
       <span>Gestor de Alumnos</span>
       <span class="example-spacer"></span>
     </mat-toolbar>
-      <app-alumns class="p-1"></app-alumns>
+      <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

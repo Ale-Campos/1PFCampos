@@ -1,5 +1,5 @@
 
-  <div class="table-container">
+  <div class="table-container p-3">
     <table
       mat-table
       [dataSource]="dataSource"
@@ -32,7 +32,7 @@
             mat-fab
             color="primary"
             aria-label="Example icon button with a delete icon"
-            (click)="alumnDetails(element)"
+            (click)="alumnDetails(element.id)"
           >
             <mat-icon>visibility</mat-icon>
           </button>

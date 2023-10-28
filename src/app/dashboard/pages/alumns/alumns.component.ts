@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IAlumn } from 'src/data/Alumns';
 import { AlumnsDialgoComponent } from './components/alumns-dialgo/alumns-dialgo.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alumns',
@@ -9,7 +10,7 @@ import { AlumnsDialgoComponent } from './components/alumns-dialgo/alumns-dialgo.
   styleUrls: ['./alumns.component.scss'],
 })
 export class AlumnsComponent {
-  constructor(private matDialog: MatDialog) {}
+  constructor(private matDialog: MatDialog, private router: Router) {}
 
   dataSource: IAlumn[] = [
     {
@@ -69,13 +70,14 @@ export class AlumnsComponent {
     this.dataSource = this.dataSource.filter((alumn) => alumn.id != alumnId);
   }
 
-  public alumnDetails(alumn: IAlumn): void {
-    this.matDialog.open(AlumnsDialgoComponent, {
-      data: {
-        alumn,
-        edit: false,
-      },
-    });
+  public alumnDetails(alumnId: string): void {
+    // this.matDialog.open(AlumnsDialgoComponent, {
+    //   data: {
+    //     alumn,
+    //     edit: false,
+    //   },
+    // });
+    this.router.navigate(['dashboard', 'alumns', 'details', alumnId])
   }
 
   public alumnEdit(alumn: IAlumn): void {

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AlumnsComponent } from './alumns.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AlumnsDialgoComponent } from './components/alumns-dialgo/alumns-dialgo.component';
+import { AlumnDetailComponent } from './components/alumn-detail/alumn-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -10,11 +12,13 @@ import { AlumnsDialgoComponent } from './components/alumns-dialgo/alumns-dialgo.
 @NgModule({
   declarations: [
     AlumnsComponent,
-    AlumnsDialgoComponent
+    AlumnsDialgoComponent,
+    AlumnDetailComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [AlumnsComponent]
 })

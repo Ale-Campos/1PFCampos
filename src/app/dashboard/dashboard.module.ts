@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 import { AlumnsModule } from './pages/alumns/alumns.module';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     MatToolbarModule,
     SharedModule,
     AlumnsModule,
-    
+    RouterModule,
+    MatListModule
   ],
   exports: [
     DashboardComponent,
