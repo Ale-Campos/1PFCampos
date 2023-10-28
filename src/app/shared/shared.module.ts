@@ -9,8 +9,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FullnamePipe } from './pipes/fullname.pipe';
 import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormErrorsPipe } from './pipes/form-errors.pipe';
 import { FormatNameDirective } from './directives/format-name.directive';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -34,7 +36,9 @@ import { FormatNameDirective } from './directives/format-name.directive';
     MatDialogModule,
     FullnamePipe,
     FormErrorsPipe,
-    FormatNameDirective
+    FormatNameDirective,
+    MatDatepickerModule,
+    MatNativeDateModule
    ]
 })
 export class SharedModule { }

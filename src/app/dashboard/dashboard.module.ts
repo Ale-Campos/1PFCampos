@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { AlumnsModule } from './pages/alumns/alumns.module';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { CoursesModule } from './pages/courses/courses.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     MatToolbarModule,
     SharedModule,
     AlumnsModule,
+    CoursesModule,
     RouterModule,
     MatListModule
   ],

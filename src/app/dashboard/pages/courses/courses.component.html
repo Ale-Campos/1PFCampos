@@ -1,1 +1,13 @@
-<p>courses works!</p>
+<app-courses-table
+[dataSource]="(courses$ | async) || [] " [columns]="columns" 
+(courseEdit)="courseEdit($event)"
+(courseDelete)="courseDelete($event)"
+>
+
+</app-courses-table>
+
+<div class="d-flex justify-content-end">
+    <button (click)="courseCreate()" mat-flat-button color="primary">
+       <mat-icon>add</mat-icon> Crear curso
+    </button>
+</div>
