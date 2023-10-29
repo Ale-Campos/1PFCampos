@@ -8,6 +8,7 @@ import { AlumnsModule } from './pages/alumns/alumns.module';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { CoursesModule } from './pages/courses/courses.module';
+import { UsersModule } from './pages/users/users.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CoursesModule } from './pages/courses/courses.module';
     AlumnsModule,
     CoursesModule,
     RouterModule,
-    MatListModule
+    MatListModule,
+    UsersModule
   ],
   exports: [
     DashboardComponent,

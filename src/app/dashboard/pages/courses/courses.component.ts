@@ -40,8 +40,7 @@ export class CoursesComponent {
       data: course
     }).afterClosed().subscribe({
       next: (values) => {
-        console.log(values);
-        
+       
         if(values) {
           this.courses$ = this.coursesService.editCoruse$(course.id, values);
         }

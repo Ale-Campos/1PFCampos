@@ -1,0 +1,30 @@
+.table-container {
+    width: 50vw;
+    margin-top: 10px;
+    margin: auto;
+    table {
+      button {
+        width: 40px;
+        height: 40px;
+        margin: 2px;
+      }
+      
+    }
+  }
+  
+  th {
+      text-align: center;
+  }
+  
+  td {
+      text-align: center;
+  }
+  
+  .btn-create {
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+  }
+  
+  
+  

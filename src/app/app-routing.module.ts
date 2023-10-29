@@ -6,6 +6,7 @@ import { HomeComponent } from './dashboard/pages/home/home.component';
 import { AlumnsComponent } from './dashboard/pages/alumns/alumns.component';
 import { CoursesComponent } from './dashboard/pages/courses/courses.component';
 import { AlumnDetailComponent } from './dashboard/pages/alumns/components/alumn-detail/alumn-detail.component';
+import { UsersComponent } from './dashboard/pages/users/users.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent
       },
       {
         path: 'alumns',

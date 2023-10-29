@@ -29,9 +29,7 @@ export class CoursesDialogComponent {
     if(this.courseForm.invalid) {
       this.courseForm.markAllAsTouched();
     } else {
-      console.log(this.courseForm.value);
       this.matDialogRef.close(this.courseForm.value);
-      //Logica para crear un curso
     }
   }
 }

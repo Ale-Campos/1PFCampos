@@ -50,7 +50,6 @@ export class AlumnsComponent {
       .afterClosed()
       .subscribe({
         next: (value) => {
-          console.log(value);
           if (value) {
             this.dataSource = [
               ...this.dataSource,

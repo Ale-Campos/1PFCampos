@@ -40,7 +40,6 @@ export class CoursesService {
   }
 
   editCoruse$(courseId: string, payload: Course): Observable<Course[]> {
-    console.log( "Payload",payload);
     
     return of(this.courses = this.courses.map((course) => {
       if(course.id == courseId){
@@ -54,7 +53,7 @@ export class CoursesService {
     }));
   }
 
-  deleteCourse$(courseId:string) {
+  deleteCourse$(courseId:string): Observable<Course[]> {
     return of(this.courses = this.courses.filter((course) => course.id != courseId));
   }
 
