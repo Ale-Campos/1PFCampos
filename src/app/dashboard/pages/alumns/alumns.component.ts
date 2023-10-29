@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { IAlumn } from 'src/data/Alumns';
 import { AlumnsDialgoComponent } from './components/alumns-dialgo/alumns-dialgo.component';
 import { Router } from '@angular/router';
+import { AlumnsService } from './alumns.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-alumns',
@@ -10,38 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./alumns.component.scss'],
 })
 export class AlumnsComponent {
-  constructor(private matDialog: MatDialog, private router: Router) {}
+  dataSource: Observable<IAlumn[]>;
 
-  dataSource: IAlumn[] = [
-    {
-      id: '1',
-      name: 'Alejandro',
-      lastName: 'Campos',
-      email: 'alecampos@gmail.com',
-      course: 'A',
-    },
-    {
-      id: '2',
-      name: 'Melina',
-      lastName: 'Perez',
-      email: 'melinaperez@gmail.com',
-      course: 'B',
-    },
-    {
-      id: '3',
-      name: 'Alejo',
-      lastName: 'Schmidt',
-      email: 'alejoschmidt@gmail.com',
-      course: 'C',
-    },
-    {
-      id: '4',
-      name: 'Claudio',
-      lastName: 'Campos',
-      email: 'caludiocampos@gmail.com',
-      course: 'D',
-    },
-  ];
+  constructor(private matDialog: MatDialog, private router: Router, private alumnService: AlumnsService) {
+    this.dataSource = this.alumnService.getAlumns$();
+  }
+
+  
   columns = ['id', 'name', 'email', 'course', 'actions'];
 
   public alumnCreate(): void {
@@ -49,24 +26,23 @@ export class AlumnsComponent {
       .open(AlumnsDialgoComponent)
       .afterClosed()
       .subscribe({
-        next: (value) => {
+        next: (value: IAlumn) => {
           if (value) {
-            this.dataSource = [
-              ...this.dataSource,
-              {
-                ...value,
-                id: `${
-                  parseInt(this.dataSource[this.dataSource.length - 1].id) + 1
-                }`,
-              },
-            ];
+            let newId = new Date().getTime().toString();
+            this.dataSource = this.alumnService.createAlumn$({
+              id: newId,
+              name: value.name,
+              lastName: value.lastName,
+              email: value.email,
+              course: value.course
+            });
           }
         },
       });
   }
 
   public alumnDelete(alumnId: string): void {
-    this.dataSource = this.dataSource.filter((alumn) => alumn.id != alumnId);
+    this.dataSource = this.alumnService.deleteAlumn$(alumnId);
   }
 
   public alumnDetails(alumnId: string): void {
@@ -89,20 +65,11 @@ export class AlumnsComponent {
       })
       .afterClosed()
       .subscribe({
-        next: (values) => {
+        next: (values: IAlumn) => {
           if(values) {
-            this.dataSource = this.dataSource.map((readedAlumn) => {
-              if (readedAlumn.id === alumn.id) {
-                readedAlumn = {
-                  ...readedAlumn,
-                  name: values.name,
-                  lastName: values.lastName,
-                  email: values.email,
-                  course: values.course,
-                };
-              }
-              return readedAlumn;
-            });
+            console.log(values);
+            
+            this.dataSource = this.alumnService.editAlumn$(alumn.id, values);
           }
         },
       });

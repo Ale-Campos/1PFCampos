@@ -2,7 +2,7 @@
   <div class="table-container p-3">
     <table
       mat-table
-      [dataSource]="dataSource"
+      [dataSource]="(dataSource | async) || []"
       class="mat-elevation-z8"
       style="width: 50px"
     >

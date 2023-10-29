@@ -26,7 +26,8 @@ export class UsersComponent {
   userCreate(): void {
     this.matDialog.open(UsersDialogComponent).afterClosed().subscribe({
       next: (v) => {
-        let newId = new Date().getTime().toString();
+        if(v) {
+          let newId = new Date().getTime().toString();
         this.users = this.userService.createUser$({
           id: newId,
           name: v.name,
@@ -34,6 +35,7 @@ export class UsersComponent {
           username: v.username,
           email:v.email,
         });
+        }
       }
     })
   }
