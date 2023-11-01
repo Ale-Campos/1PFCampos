@@ -6,22 +6,30 @@
         <mat-form-field class="col-12">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="name" type="text">
-            <!--Manejar error-->
+            <mat-error>
+                {{ userForm.get("name")?.errors | formErrors }}
+            </mat-error>
         </mat-form-field>
         <mat-form-field class="col-12">
             <mat-label>Apellido</mat-label>
             <input matInput formControlName="lastname" type="text">
-            <!--Manejar error-->
+            <mat-error>
+                {{ userForm.get("lastname")?.errors | formErrors }}
+            </mat-error>
         </mat-form-field>
         <mat-form-field class="col-12">
             <mat-label>Usuario</mat-label>
             <input matInput formControlName="username" type="text">
-            <!--Manejar error-->
+            <mat-error>
+                {{ userForm.get("username")?.errors | formErrors }}
+            </mat-error>
         </mat-form-field>
         <mat-form-field class="col-12">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" type="text">
-            <!--Manejar error-->
+            <mat-error>
+                {{ userForm.get("email")?.errors | formErrors }}
+            </mat-error>
         </mat-form-field>
     </form>
 </div>
