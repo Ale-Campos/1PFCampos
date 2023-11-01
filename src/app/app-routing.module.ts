@@ -11,36 +11,38 @@ import { UsersComponent } from './dashboard/pages/users/users.component';
 const routes: Routes = [
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    children: [
-      {
-        path: 'home',
-        component: HomeComponent
-      },
-      {
-        path: 'users',
-        component: UsersComponent
-      },
-      {
-        path: 'alumns',
-        component:AlumnsComponent,
-        children: [
-          {
-            path: 'details/:id',
-            component: AlumnDetailComponent
-          }
-        ]
-      },
-      {
-        path: 'courses',
-        component: CoursesComponent
-      },
-      {
-        path:'**',
-        redirectTo:'home'
-      }
-    ]
-  }, 
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  }
+    // component: DashboardComponent,
+    // children: [
+    //   {
+    //     path: 'home',
+    //     component: HomeComponent
+    //   },
+    //   {
+    //     path: 'users',
+    //     component: UsersComponent
+    //   },
+    //   {
+    //     path: 'alumns',
+    //     component:AlumnsComponent,
+    //     children: [
+    //       {
+    //         path: 'details/:id',
+    //         component: AlumnDetailComponent
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     path: 'courses',
+    //     component: CoursesComponent
+    //   },
+    //   {
+    //     path:'**',
+    //     redirectTo:'home'
+    //   }
+    // ]
+  , 
   {
     path: 'auth',
     component: AuthComponent
