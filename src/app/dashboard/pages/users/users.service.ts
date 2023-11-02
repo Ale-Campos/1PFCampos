@@ -37,6 +37,10 @@ export default class UsersService {
     },
   ];
 
+  getUser(userId: string): User | undefined {
+    return this.users.find(u => u.id == userId);
+  }
+
   getUsers$(): Observable<User[]> {
     return of(this.users);
   }

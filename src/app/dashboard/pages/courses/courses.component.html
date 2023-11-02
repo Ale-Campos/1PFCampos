@@ -2,6 +2,7 @@
 [dataSource]="(courses$ | async) || [] " [columns]="columns" 
 (courseEdit)="courseEdit($event)"
 (courseDelete)="courseDelete($event)"
+(courseDetail)="courseDetail($event)"
 >
 
 </app-courses-table>

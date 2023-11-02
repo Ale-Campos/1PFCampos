@@ -20,5 +20,7 @@ export class UsersTableComponent {
   @Output()
   userDelete = new EventEmitter();
 
+  @Output()
+  userDetail = new EventEmitter();
 
 }

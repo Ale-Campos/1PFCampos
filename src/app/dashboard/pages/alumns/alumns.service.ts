@@ -38,6 +38,10 @@ export class AlumnsService {
   },
  ];
 
+ getAlumn(alumnId: string): IAlumn | undefined {
+  return this.alumns.find(a => a.id == alumnId);
+ }
+
  getAlumns$(): Observable<IAlumn[]> {
   return of(this.alumns);
  }

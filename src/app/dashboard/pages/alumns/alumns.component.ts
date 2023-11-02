@@ -46,13 +46,7 @@ export class AlumnsComponent {
   }
 
   public alumnDetails(alumnId: string): void {
-    // this.matDialog.open(AlumnsDialgoComponent, {
-    //   data: {
-    //     alumn,
-    //     edit: false,
-    //   },
-    // });
-    this.router.navigate(['dashboard', 'alumns', 'details', alumnId])
+    this.router.navigate(['dashboard', 'alumns', 'details', alumnId]);
   }
 
   public alumnEdit(alumn: IAlumn): void {

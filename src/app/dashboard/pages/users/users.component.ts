@@ -4,6 +4,7 @@ import { User } from 'src/data/Users';
 import UsersService from './users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UsersDialogComponent } from './components/users-dialog/users-dialog.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class UsersComponent {
 
   constructor(
     private userService: UsersService,
-    private matDialog: MatDialog    
+    private matDialog: MatDialog,
+    private router : Router
     ) {
     this.users = this.userService.getUsers$();
   }
@@ -38,6 +40,10 @@ export class UsersComponent {
         }
       }
     })
+  }
+
+  userDetail(userId: string): void {
+    this.router.navigate(['dashboard', 'users', 'details', userId]);
   }
 
   userEdit(user: User): void {

@@ -4,6 +4,7 @@ import { CoursesService } from './courses.service';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { CoursesDialogComponent } from './components/courses-dialog/courses-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -14,7 +15,10 @@ export class CoursesComponent {
 
   courses$: Observable<Course[]>;
 
-  constructor(private coursesService: CoursesService, private matDialog: MatDialog) {
+  constructor(private coursesService: CoursesService,
+    private matDialog: MatDialog,
+    private router: Router
+    ) {
     this.courses$ = this.coursesService.getCourses$();
   }
   columns = ['id', 'name', 'startDate', 'endDate', 'actions'];
@@ -33,6 +37,10 @@ export class CoursesComponent {
         }
       }
     });
+  }
+
+  courseDetail(courseId: string):void {
+    this.router.navigate(['dashboard', 'courses','details', courseId]);
   }
 
   courseEdit(course: Course): void {

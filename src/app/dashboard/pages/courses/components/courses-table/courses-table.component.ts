@@ -18,4 +18,7 @@ export class CoursesTableComponent {
   @Output()
   courseDelete = new EventEmitter();
 
+  @Output()
+  courseDetail = new EventEmitter();
+
 }

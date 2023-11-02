@@ -30,6 +30,11 @@ export class CoursesService {
 
   ];
 
+
+  getCourse(courseId: string): Course | undefined {
+    return this.courses.find(c => c.id == courseId);
+  }
+
   getCourses$(): Observable<Course[]> {
     return of(this.courses);
   }
