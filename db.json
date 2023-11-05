@@ -6,6 +6,8 @@
       "lastname": "Prueba1",
       "username": "user1",
       "email": "usuario1@test.com",
+      "role": "admin",
+      "token": "adhjdafsjkhsdaf",
       "password": "pass1"
     },
     {
@@ -14,6 +16,8 @@
       "lastname": "Prueba2",
       "username": "user2",
       "email": "usuario2@test.com",
+      "role": "admin",
+      "token": "adhjdafsakgedaf",
       "password": "pass2"
     },
     {
@@ -22,6 +26,8 @@
       "lastname": "Prueba3",
       "username": "user3",
       "email": "usuario3@test.com",
+      "role": "admin",
+      "token": "skegaafsjkhsdaf",
       "password": "pass3"
     },
     {
@@ -30,6 +36,8 @@
       "lastname": "Prueba4",
       "username": "user4",
       "email": "usuario4@test.com",
+      "role": "admin",
+      "token": "adhjdafsyhefaaf",
       "password": "pass4"
     },
     {
@@ -38,6 +46,8 @@
       "lastname": "Prueba5",
       "username": "user5",
       "email": "usuario5@test.com",
+      "role": "admin",
+      "token": "adhjdaawrtefaaf",
       "password": "pass5"
     }
   ],

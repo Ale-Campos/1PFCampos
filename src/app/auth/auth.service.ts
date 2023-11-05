@@ -25,6 +25,7 @@ export class AuthService {
       next: (response) => {
         if(response.length != 0){
           this._authUser$.next(response[0]);
+          localStorage.setItem('token', response[0].token);
           this.router.navigate(['dashboard', 'home']);
         } else {
           alert("Credenciales Inválidas");
