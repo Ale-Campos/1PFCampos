@@ -25,6 +25,13 @@
             </mat-error>
         </mat-form-field>
         <mat-form-field class="col-12">
+            <mat-label>Rol</mat-label>
+            <input matInput formControlName="role" type="text">
+            <mat-error>
+                {{ userForm.get("role")?.errors | formErrors }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-12">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" type="text">
             <mat-error>

@@ -30,13 +30,17 @@ export class UsersComponent {
       next: (v) => {
         if(v) {
           let newId = new Date().getTime().toString();
+          let token = crypto.randomUUID();
+          
         this.users = this.userService.createUser$({
           id: newId,
           name: v.name,
           lastname: v.lastname,
           username: v.username,
           email:v.email,
-          password: v.password
+          password: v.password,
+          role: v.role,
+          token: token,
         });
         }
       }

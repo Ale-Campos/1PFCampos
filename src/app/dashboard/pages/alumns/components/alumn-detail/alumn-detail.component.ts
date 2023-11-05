@@ -16,6 +16,5 @@ export class AlumnDetailComponent {
   constructor(private activatedRoute: ActivatedRoute,
     private alumnService: AlumnsService) {
     this.alumn = this.alumnService.getAlumn(this.activatedRoute.snapshot.params['id']);
-      console.log(this.alumn);
   }
 }

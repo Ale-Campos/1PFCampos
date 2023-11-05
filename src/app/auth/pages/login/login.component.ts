@@ -20,7 +20,6 @@ export class LoginComponent {
     if(this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
     } else {
-      console.log(this.loginForm.value);
       this.authService.login(this.loginForm.value["username"],this.loginForm.value["password"]);     
     }
   }

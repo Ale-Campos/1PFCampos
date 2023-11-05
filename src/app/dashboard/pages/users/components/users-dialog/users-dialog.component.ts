@@ -20,6 +20,7 @@ export class UsersDialogComponent {
       lastname: ['', Validators.required],
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      role: ['', [Validators.required]],
       password: ['', [Validators.required]]
     })
     

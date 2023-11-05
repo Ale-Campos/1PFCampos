@@ -61,7 +61,6 @@ export class AlumnsComponent {
       .subscribe({
         next: (values: IAlumn) => {
           if(values) {
-            console.log(values);
             
             this.dataSource = this.alumnService.editAlumn$(alumn.id, values);
           }
