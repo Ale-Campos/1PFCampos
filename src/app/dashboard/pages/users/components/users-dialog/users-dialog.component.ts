@@ -19,7 +19,8 @@ export class UsersDialogComponent {
       name: ['', Validators.required],
       lastname: ['', Validators.required],
       username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     })
     
     if(data) {

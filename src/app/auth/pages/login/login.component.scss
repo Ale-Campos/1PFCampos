@@ -1,0 +1,19 @@
+.loginFormContainer {
+    justify-self: center;
+    width: fit-content;
+    background-color: #673ab7;
+    padding: 50px;
+    border-radius: 10px;
+    position: absolute;
+    top: 30vh;
+    h1 {
+        text-align: center;
+        color: white;
+    }
+    form {
+        button {
+            width: fit-content;
+            padding: 20px;
+        }
+    }
+}

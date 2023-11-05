@@ -36,6 +36,7 @@ export class UsersComponent {
           lastname: v.lastname,
           username: v.username,
           email:v.email,
+          password: v.password
         });
         }
       }

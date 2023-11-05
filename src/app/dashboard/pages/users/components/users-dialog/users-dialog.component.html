@@ -31,6 +31,13 @@
                 {{ userForm.get("email")?.errors | formErrors }}
             </mat-error>
         </mat-form-field>
+        <mat-form-field class="col-12">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password" type="text">
+            <mat-error>
+                {{ userForm.get("password")?.errors | formErrors }}
+            </mat-error>
+        </mat-form-field>
     </form>
 </div>
 <div mat-dialog-actions>

@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="loginFormContainer">
+        <h1>Login</h1>
+          <form [formGroup]="loginForm">
+            <div class="col">
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Usuario</mat-label>
+                  <input formControlName="username" matInput />
+                  <mat-error>
+                    {{ loginForm.get("username")?.errors | formErrors }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Contraseña</mat-label>
+                  <input formControlName="password" matInput />
+                  <mat-error>
+                    {{ loginForm.get("username")?.errors | formErrors }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="row justify-content-center">
+                <button type="button" mat-flat-button (click)="onSubmit()">Ingresar</button>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+</div>

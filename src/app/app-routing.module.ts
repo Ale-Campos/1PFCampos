@@ -13,39 +13,10 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   }
-    // component: DashboardComponent,
-    // children: [
-    //   {
-    //     path: 'home',
-    //     component: HomeComponent
-    //   },
-    //   {
-    //     path: 'users',
-    //     component: UsersComponent
-    //   },
-    //   {
-    //     path: 'alumns',
-    //     component:AlumnsComponent,
-    //     children: [
-    //       {
-    //         path: 'details/:id',
-    //         component: AlumnDetailComponent
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     path: 'courses',
-    //     component: CoursesComponent
-    //   },
-    //   {
-    //     path:'**',
-    //     redirectTo:'home'
-    //   }
-    // ]
   , 
   {
     path: 'auth',
-    component: AuthComponent
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path:'**',

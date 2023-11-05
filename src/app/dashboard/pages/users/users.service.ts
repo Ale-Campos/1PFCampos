@@ -13,6 +13,7 @@ export default class UsersService {
       lastname: 'Prueba1',
       username: 'user1',
       email: 'usuario1@test.com',
+      password: 'pass1'
     },
     {
       id: '2',
@@ -20,6 +21,7 @@ export default class UsersService {
       lastname: 'Prueba2',
       username: 'user2',
       email: 'usuario2@test.com',
+      password: 'pass2'
     },
     {
       id: '3',
@@ -27,6 +29,7 @@ export default class UsersService {
       lastname: 'Prueba3',
       username: 'user3',
       email: 'usuario3@test.com',
+      password: 'pass3'
     },
     {
       id: '4',
@@ -34,6 +37,7 @@ export default class UsersService {
       lastname: 'Prueba4',
       username: 'user4',
       email: 'usuario4@test.com',
+      password: 'pass4'
     },
   ];
 

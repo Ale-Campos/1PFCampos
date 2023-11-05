@@ -20,7 +20,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
     SharedModule
   ],
   exports: [
-    UsersTableComponent
+    UsersComponent
   ]
 })
 export class UsersModule { }
