@@ -21,6 +21,8 @@ export class UsersComponent {
     private router : Router
     ) {
     this.users = this.userService.getUsers$();
+    console.log(this.users);
+    
   }
 
   columns: string[]= ['id', 'name', 'lastname', 'email', 'actions'];
@@ -56,13 +58,13 @@ export class UsersComponent {
       data: user
     }).afterClosed().subscribe({
       next: (v) => {
-        this.users = this.userService.editUser$(user.id, v);
+        // this.users = this.userService.editUser$(user.id, v);
       }
     })
   }
 
   userDelete(userId: string): void {
-    this.users = this.userService.deleteUser$(userId);
+    // this.users = this.userService.deleteUser$(userId);
   }
 
 }

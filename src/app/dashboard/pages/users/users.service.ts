@@ -1,84 +1,99 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { User } from 'src/data/Users';
+import { environments } from 'src/environments/environment.local';
 
 @Injectable({
   providedIn: 'root',
 })
 export default class UsersService {
-  users: User[] = [
-    {
-      id: '1',
-      name: 'Usuario1',
-      lastname: 'Prueba1',
-      username: 'user1',
-      email: 'usuario1@test.com',
-      password: 'pass1',
-      role: "admin",
-      token: "adhjdafsjkhsdaf"
-    },
-    {
-      id: '2',
-      name: 'Usuario2',
-      lastname: 'Prueba2',
-      username: 'user2',
-      email: 'usuario2@test.com',
-      password: 'pass2',
-      role: "admin",
-      token: "adhjdafsakgedaf"
-    },
-    {
-      id: '3',
-      name: 'Usuario3',
-      lastname: 'Prueba3',
-      username: 'user3',
-      email: 'usuario3@test.com',
-      password: 'pass3',
-      role: "admin",
-      token: "skegaafsjkhsdaf"
-    },
-    {
-      id: '4',
-      name: 'Usuario4',
-      lastname: 'Prueba4',
-      username: 'user4',
-      email: 'usuario4@test.com',
-      password: 'pass4',
-      role: "admin",
-      token: "adhjdafsyhefaaf"
-    },
-  ];
+  private _users$ =  new BehaviorSubject<User[]>([]);
+  public users$ = this._users$.asObservable();
 
-  getUser(userId: string): User | undefined {
-    return this.users.find(u => u.id == userId);
+  private _user$ = new BehaviorSubject<User | null>(null);
+  public user$ = this._user$.asObservable();
+
+  constructor(private httpCliente: HttpClient){}
+
+  getUser(userId: string): Observable<User | null> {
+    //return this.users$.find(u => u.id == userId);
+    this.httpCliente.get<User[]>(`${environments.baseUrl}/users?id=${userId}`).subscribe({
+      next: (response) => {
+        this._user$.next(response[0]);        
+      },
+      error: (error) => {
+        this._user$.next(null); 
+      }
+    });
+
+    return this.user$;
   }
 
   getUsers$(): Observable<User[]> {
-    return of(this.users);
+    console.log("Hola");
+    
+    this.httpCliente.get<User[]>(`${environments.baseUrl}/users`).subscribe({
+      next: (response) => {
+        this._users$.next(response);        
+      },
+      error: (error) => {
+        this._users$.next([]); 
+      }
+    });
+    return this.users$;
   }
 
   createUser$(newUser: User): Observable<User[]> {
-    this.users.push(newUser);
-    return of([...this.users]);
+
+    // this.httpCliente.get<User[]>(`${environments.baseUrl}/users?id=${userId}`).subscribe({
+    //   next: (response) => {
+    //     this._user$.next(response[0]);        
+    //   },
+    //   error: (error) => {
+    //     this._user$.next(null); 
+    //   }
+    // });
+    console.log(newUser);
+    
+    this.httpCliente.post(`${environments.baseUrl}/users`, {
+      email: newUser.email,
+      id: newUser.id,
+      lastname: newUser.lastname,
+      name: newUser.name,
+      password: newUser.password,
+      role: newUser.role,
+      token: newUser.token,
+      username: newUser.name,
+    }).subscribe({
+      next: (response) => {
+        alert("Usuario Creado!");
+      },
+      error: (error) => {
+        alert("Error de conexión");
+      }
+    });
+    this.getUsers$();
+    return this.users$;
   }
 
-  editUser$(userId: string, payload: User): Observable<User[]> {
-    return of(
-      (this.users = this.users.map((user) => {
-        if (user.id == userId) {
-          return {
-            ...user,
-            ...payload,
-          };
-        } else {
-          return user;
-        }
-      }))
-    );
+  editUser$(userId: string, payload: User): void /*Observable<User[]>*/  {
+    // return of(
+    //   (this.users = this.users.map((user) => {
+    //     if (user.id == userId) {
+    //       return {
+    //         ...user,
+    //         ...payload,
+    //       };
+    //     } else {
+    //       return user;
+    //     }
+    //   }))
+    // );
   }
 
-  deleteUser$(userId: string): Observable<User[]> {
-    return of(this.users = this.users.filter(u => u.id != userId));
+  deleteUser$(userId: string): void /*Observable<User[]>*/ {
+    // return of(this.users = this.users.filter(u => u.id != userId));
   }
 
 }

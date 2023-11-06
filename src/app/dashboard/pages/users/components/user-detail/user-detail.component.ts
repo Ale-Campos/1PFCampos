@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from 'src/data/Users';
 import UsersService from '../../users.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-detail',
@@ -10,14 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent {
 
-  user: User | undefined;
+  user$: Observable<User | null>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UsersService
   ) {
-    this.user = this.userService.getUser(this.activatedRoute.snapshot.params['id']);
+    this.user$ = this.userService.getUser(this.activatedRoute.snapshot.params['id']);
   }
-
-
 }

@@ -49,6 +49,29 @@
       "role": "admin",
       "token": "adhjdaawrtefaaf",
       "password": "pass5"
+    },
+    {
+      "newUser": {
+        "id": "1699227052177",
+        "name": "Ale",
+        "lastname": "campos",
+        "username": "alecampos",
+        "email": "ale@test.com",
+        "password": "aaaabbbb",
+        "role": "ale",
+        "token": "99706455-b258-427c-8bcb-9b6c35107a16"
+      },
+      "id": "Jgm55xt"
+    },
+    {
+      "email": "ale@test.com",
+      "id": "1699227242827",
+      "lastname": "Campos",
+      "name": "Ale",
+      "password": "11223334444",
+      "role": "Admin",
+      "token": "9136b3c0-63c0-43ae-ba6d-b8261b1f35d5",
+      "username": "Ale"
     }
   ],
   "courses": [
