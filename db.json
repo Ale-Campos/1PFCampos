@@ -1,25 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Usuario1",
-      "lastname": "Prueba1",
-      "username": "user1",
-      "email": "usuario1@test.com",
-      "role": "admin",
-      "token": "adhjdafsjkhsdaf",
-      "password": "pass1"
-    },
-    {
-      "email": "usuario2@test.com",
-      "lastname": "Prueba2",
-      "name": "Usuario22222",
-      "password": "pass2",
-      "role": "admin",
-      "username": "Usuario22222",
-      "id": "2"
-    },
-    {
       "id": "3",
       "name": "Usuario3",
       "lastname": "Prueba3",
@@ -78,35 +59,33 @@
     }
   ],
   "alumns": [
-    [
-      {
-        "id": "1",
-        "name": "Alejandro",
-        "lastName": "Campos",
-        "email": "alecampos@gmail.com",
-        "course": "A"
-      },
-      {
-        "id": "2",
-        "name": "Melina",
-        "lastName": "Perez",
-        "email": "melinaperez@gmail.com",
-        "course": "B"
-      },
-      {
-        "id": "3",
-        "name": "Alejo",
-        "lastName": "Schmidt",
-        "email": "alejoschmidt@gmail.com",
-        "course": "C"
-      },
-      {
-        "id": "4",
-        "name": "Claudio",
-        "lastName": "Campos",
-        "email": "caludiocampos@gmail.com",
-        "course": "D"
-      }
-    ]
+    {
+      "id": "1",
+      "name": "Alejandro",
+      "lastName": "Campos",
+      "email": "alecampos@gmail.com",
+      "course": "A"
+    },
+    {
+      "id": "2",
+      "name": "Melina",
+      "lastName": "Perez",
+      "email": "melinaperez@gmail.com",
+      "course": "B"
+    },
+    {
+      "id": "3",
+      "name": "Alejo",
+      "lastName": "Schmidt",
+      "email": "alejoschmidt@gmail.com",
+      "course": "C"
+    },
+    {
+      "id": "4",
+      "name": "Claudio",
+      "lastName": "Campos",
+      "email": "caludiocampos@gmail.com",
+      "course": "D"
+    }
   ]
 }

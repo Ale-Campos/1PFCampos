@@ -56,7 +56,9 @@ export class UsersComponent {
       data: user
     }).afterClosed().subscribe({
       next: (v) => {
-        this.users = this.userService.editUser$(user.id, v);
+        if(v){
+          this.users = this.userService.editUser$(user.id, v);
+        }
       }
     })
   }

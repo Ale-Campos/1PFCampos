@@ -11,7 +11,7 @@ import { AlumnsService } from '../../alumns.service';
 })
 export class AlumnDetailComponent {
 
-  alumn: IAlumn | undefined;
+  alumn: Observable<IAlumn | null >;
 
   constructor(private activatedRoute: ActivatedRoute,
     private alumnService: AlumnsService) {

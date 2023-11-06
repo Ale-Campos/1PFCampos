@@ -1,7 +1,7 @@
 
 <div style="text-align: center;">
-    <h2>{{alumn!.name}}</h2>
-    <h2>{{alumn!.lastName}}</h2>
-    <h2>{{alumn!.email}}</h2>
-    <h2>{{alumn!.course}}</h2>
+    <h2>{{(alumn| async)!.name}}</h2>
+    <h2>{{(alumn| async)!.lastName}}</h2>
+    <h2>{{(alumn| async)!.email}}</h2>
+    <h2>{{(alumn| async)!.course}}</h2>
 </div>
