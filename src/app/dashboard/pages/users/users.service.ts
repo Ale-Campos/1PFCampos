@@ -17,7 +17,6 @@ export default class UsersService {
   constructor(private httpCliente: HttpClient){}
 
   getUser(userId: string): Observable<User | null> {
-    //return this.users$.find(u => u.id == userId);
     this.httpCliente.get<User[]>(`${environments.baseUrl}/users?id=${userId}`).subscribe({
       next: (response) => {
         this._user$.next(response[0]);        
@@ -31,7 +30,6 @@ export default class UsersService {
   }
 
   getUsers$(): Observable<User[]> {
-    console.log("Hola");
     
     this.httpCliente.get<User[]>(`${environments.baseUrl}/users`).subscribe({
       next: (response) => {
@@ -56,14 +54,13 @@ export default class UsersService {
       token: newUser.token,
       username: newUser.name,
     }).subscribe({
-      next: (response) => {
-        alert("Usuario Creado!");
+      next: () => {
+        this.getUsers$();
       },
-      error: (error) => {
+      error: () => {
         alert("Error de conexión");
       }
     });
-    this.getUsers$();
     return this.users$;
   }
 

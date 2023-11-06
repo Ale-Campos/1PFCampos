@@ -20,9 +20,7 @@ export class UsersComponent {
     private matDialog: MatDialog,
     private router : Router
     ) {
-    this.users = this.userService.getUsers$();
-    console.log(this.users);
-    
+    this.users = this.userService.getUsers$();    
   }
 
   columns: string[]= ['id', 'name', 'lastname', 'email', 'actions'];
