@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from 'src/data/Courses';
 import { CoursesService } from '../../courses.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-course-detail',
@@ -9,7 +10,7 @@ import { CoursesService } from '../../courses.service';
   styleUrls: ['./course-detail.component.scss']
 })
 export class CourseDetailComponent {
-course: Course | undefined;
+course: Observable<Course|null>;
 
 constructor(
   private activatedRoute: ActivatedRoute,

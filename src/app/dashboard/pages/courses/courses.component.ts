@@ -31,8 +31,8 @@ export class CoursesComponent {
           this.courses$ = this.coursesService.createCoruse$({
             id: newId,
             name: value.name,
-            startDate: new Date(),
-            endDate: new Date()
+            startDate: value.startDate,
+            endDate: value.endDate
           });
         }
       }
@@ -50,6 +50,7 @@ export class CoursesComponent {
       next: (values) => {
        
         if(values) {
+          
           this.courses$ = this.coursesService.editCoruse$(course.id, values);
         }
       }

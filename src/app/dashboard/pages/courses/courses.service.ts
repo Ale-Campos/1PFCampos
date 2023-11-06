@@ -1,65 +1,99 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Course } from 'src/data/Courses';
+import { environments } from 'src/environments/environment.local';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CoursesService {
+  private _courses$ = new BehaviorSubject<Course[]>([]);
+  public courses$ = this._courses$.asObservable();
 
+  private _course$ = new BehaviorSubject<Course | null>(null);
+  public course$ = this._course$.asObservable();
 
-  courses: Course[] = [
-    {
-      id: "1",
-      name: "Desarrollo Web",
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: "2",
-      name: "Angular",
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: "3",
-      name: "React",
-      startDate: new Date(),
-      endDate: new Date()
-    },
+  constructor(private httpCliente: HttpClient) {}
 
-  ];
-
-
-  getCourse(courseId: string): Course | undefined {
-    return this.courses.find(c => c.id == courseId);
+  getCourse(courseId: string): Observable<Course | null> {
+    this.httpCliente
+      .get<Course[]>(`${environments.baseUrl}/courses?id=${courseId}`)
+      .subscribe({
+        next: (response) => {
+          this._course$.next(response[0]);
+        },
+        error: (error) => {
+          this._course$.next(null);
+        },
+      });
+    return this.course$;
   }
 
   getCourses$(): Observable<Course[]> {
-    return of(this.courses);
+    this.httpCliente
+      .get<Course[]>(`${environments.baseUrl}/courses`)
+      .subscribe({
+        next: (response) => {
+          this._courses$.next(response);
+        },
+        error: (error) => {
+          this._courses$.next([]);
+        },
+      });
+    return this.courses$;
   }
 
   createCoruse$(newCourse: Course): Observable<Course[]> {
-    this.courses.push(newCourse);
-    return of([...this.courses]);
+    this.httpCliente
+      .post(`${environments.baseUrl}/courses`, {
+        id: newCourse.id,
+        name: newCourse.name,
+        startDate: newCourse.startDate,
+        endDate: newCourse.endDate,
+      })
+      .subscribe({
+        next: () => {
+          this.getCourses$();
+        },
+        error: () => {
+          alert('Error de conexión');
+        },
+      });
+    return this.courses$;
   }
 
   editCoruse$(courseId: string, payload: Course): Observable<Course[]> {
-    
-    return of(this.courses = this.courses.map((course) => {
-      if(course.id == courseId){
-       return {
-          ...course,
-          ...payload
-        }
-      } else {
-        return course;
-      }
-    }));
+    this.httpCliente
+      .put(`${environments.baseUrl}/courses/${courseId}`, {
+        id: payload.id,
+        name: payload.name,
+        startDate: payload.startDate,
+        endDate: payload.endDate,
+      })
+      .subscribe({
+        next: () => {
+          this.getCourses$();
+        },
+        error: () => {
+          alert('Error de conexión');
+        },
+      });
+
+    return this.courses$;
   }
 
-  deleteCourse$(courseId:string): Observable<Course[]> {
-    return of(this.courses = this.courses.filter((course) => course.id != courseId));
+  deleteCourse$(courseId: string): Observable<Course[]> {
+    this.httpCliente
+      .delete(`${environments.baseUrl}/courses/${courseId}`)
+      .subscribe({
+        next: () => {
+          this.getCourses$();
+        },
+        error: () => {
+          alert('Error de conexión');
+        },
+      });
+    return this.courses$;
   }
-
 }

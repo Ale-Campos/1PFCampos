@@ -36,6 +36,12 @@
       "role": "Admin",
       "token": "9136b3c0-63c0-43ae-ba6d-b8261b1f35d5",
       "username": "Ale"
+    },
+    {
+      "id": "1699281197504",
+      "name": "JavaScript",
+      "startDate": "2023-11-06T14:33:17.504Z",
+      "endDate": "2023-11-06T14:33:17.504Z"
     }
   ],
   "courses": [
@@ -56,6 +62,24 @@
       "name": "React",
       "startDate": "Fri Oct 04 2023 14:30:00 GMT-0500 (Eastern Standard Time)",
       "endDate": "Fri Nov 04 2023 14:30:00 GMT-0500 (Eastern Standard Time)"
+    },
+    {
+      "name": "JavaScript",
+      "startDate": "2023-11-06T14:35:36.701Z",
+      "endDate": "2023-11-30T03:00:00.000Z",
+      "id": "1699281336701"
+    },
+    {
+      "id": "1699281378690",
+      "name": "SQL",
+      "startDate": "2023-11-06T14:36:18.690Z",
+      "endDate": "2023-11-06T14:36:18.690Z"
+    },
+    {
+      "name": "WordPress",
+      "startDate": "2023-11-06T14:37:04.631Z",
+      "endDate": "2023-11-06T14:37:04.631Z",
+      "id": "1699281424631"
     }
   ],
   "alumns": [
@@ -79,13 +103,6 @@
       "lastName": "Schmidt",
       "email": "alejoschmidt@gmail.com",
       "course": "C"
-    },
-    {
-      "id": "4",
-      "name": "Claudio",
-      "lastName": "Campos",
-      "email": "caludiocampos@gmail.com",
-      "course": "D"
     }
   ]
 }

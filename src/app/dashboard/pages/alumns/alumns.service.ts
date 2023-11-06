@@ -47,7 +47,7 @@ export class AlumnsService {
     this.httpCliente.post(`${environments.baseUrl}/alumns`, {
       email: newAlumn.email,
       id: newAlumn.id,
-      lastname: newAlumn.lastName,
+      lastName: newAlumn.lastName,
       name: newAlumn.name,
       course: newAlumn.course
     }).subscribe({
@@ -66,7 +66,7 @@ export class AlumnsService {
     this.httpCliente.put(`${environments.baseUrl}/alumns/${alumnId}`, {
       email: payload.email,
       id: payload.id,
-      lastname: payload.lastName,
+      lastName: payload.lastName,
       name: payload.name,
       course: payload.course
     }).subscribe({

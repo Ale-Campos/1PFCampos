@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-    <h2>{{course!.name }}</h2>
-    <h2>{{course!.startDate | date }}</h2>
-    <h2>{{course!.endDate | date}}</h2>
+    <h2>{{(course | async)?.name }}</h2>
+    <h2>{{(course | async)?.startDate | date }}</h2>
+    <h2>{{(course | async)?.endDate | date}}</h2>
 </div>
