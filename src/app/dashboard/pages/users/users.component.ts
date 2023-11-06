@@ -58,13 +58,13 @@ export class UsersComponent {
       data: user
     }).afterClosed().subscribe({
       next: (v) => {
-        // this.users = this.userService.editUser$(user.id, v);
+        this.users = this.userService.editUser$(user.id, v);
       }
     })
   }
 
   userDelete(userId: string): void {
-    // this.users = this.userService.deleteUser$(userId);
+    this.users = this.userService.deleteUser$(userId);
   }
 
 }

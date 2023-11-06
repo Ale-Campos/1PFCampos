@@ -45,16 +45,6 @@ export default class UsersService {
   }
 
   createUser$(newUser: User): Observable<User[]> {
-
-    // this.httpCliente.get<User[]>(`${environments.baseUrl}/users?id=${userId}`).subscribe({
-    //   next: (response) => {
-    //     this._user$.next(response[0]);        
-    //   },
-    //   error: (error) => {
-    //     this._user$.next(null); 
-    //   }
-    // });
-    console.log(newUser);
     
     this.httpCliente.post(`${environments.baseUrl}/users`, {
       email: newUser.email,
@@ -77,23 +67,39 @@ export default class UsersService {
     return this.users$;
   }
 
-  editUser$(userId: string, payload: User): void /*Observable<User[]>*/  {
-    // return of(
-    //   (this.users = this.users.map((user) => {
-    //     if (user.id == userId) {
-    //       return {
-    //         ...user,
-    //         ...payload,
-    //       };
-    //     } else {
-    //       return user;
-    //     }
-    //   }))
-    // );
+  editUser$(userId: string, payload: User): Observable<User[]> {
+    this.httpCliente.put(`${environments.baseUrl}/users/${userId}`, {
+      email: payload.email,
+      id: payload.id,
+      lastname: payload.lastname,
+      name: payload.name,
+      password: payload.password,
+      role: payload.role,
+      token: payload.token,
+      username: payload.name,
+    }).subscribe({
+      next: () => {
+        this.getUsers$();
+      },
+      error: () => {
+        alert("Error de conexión")
+      }
+    });
+    
+    return this.users$;
   }
 
-  deleteUser$(userId: string): void /*Observable<User[]>*/ {
-    // return of(this.users = this.users.filter(u => u.id != userId));
+  deleteUser$(userId: string): Observable<User[]> {
+    this.httpCliente.delete(`${environments.baseUrl}/users/${userId}`)
+    .subscribe({
+      next: () => {
+        this.getUsers$();
+      },
+      error: () => {
+        alert("Error de conexión");
+      }
+    });
+    return this.users$;
   }
 
 }
