@@ -42,7 +42,17 @@
       "name": "JavaScript",
       "startDate": "2023-11-06T14:33:17.504Z",
       "endDate": "2023-11-06T14:33:17.504Z"
-    }
+    },
+    {
+      "id": "testedUser",
+      "name": "Tested",
+      "lastname": "User",
+      "email": "tested@user.com",
+      "username": "testedUser",
+      "password": "testedUser1",
+      "role": "tested",
+      "token": "testedUser1234567"
+  }
   ],
   "courses": [
     {
