@@ -1,18 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { User } from 'src/data/Users';
 import { environments } from 'src/environments/environment.local';
+import { AuthActions } from '../store/auth/auth.actions';
+import { selectAuthUser } from '../store/auth/auth.selector';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _authUser$ = new BehaviorSubject<User | null>(null);
-  public authUser$ = this._authUser$.asObservable();
 
-  constructor(private httpCliente: HttpClient, private router: Router) {}
+  public authUser$ = this.store.select(selectAuthUser);
+
+  constructor(private httpCliente: HttpClient, private router: Router, private store: Store) {}
 
   login(username: string, password: string) {
     this.httpCliente
@@ -22,8 +25,11 @@ export class AuthService {
       .subscribe({
         next: (response) => {
           if (response.length != 0) {
-            this._authUser$.next(response[0]);
+            
+            this.store.dispatch(AuthActions.setAuthUser({data: response[0]}));
             localStorage.setItem('token', response[0].token);
+
+
             this.router.navigate(['dashboard', 'home']);
           } else {
             alert('Credenciales Inválidas');
@@ -45,7 +51,7 @@ export class AuthService {
           if (users.length == 0) {
             return false;
           } else {
-            this._authUser$.next(users[0]);
+            this.store.dispatch(AuthActions.setAuthUser({data: users[0]}));
             localStorage.setItem('token', users[0].token);
             return true;
           }
@@ -54,7 +60,7 @@ export class AuthService {
   }
 
   logOut(): void {
-    this._authUser$.next(null);
+    this.store.dispatch(AuthActions.clearAuthUser());
     localStorage.removeItem('token');
     this.router.navigate(['auth', 'login']);
   }
