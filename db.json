@@ -108,5 +108,12 @@
       "email": "alejoschmidt@gmail.com",
       "course": "C"
     }
+  ],
+  "enrollments": [
+    {
+      "id":"1",
+      "courseId": "1",
+      "alumnId": "1"
+    }
   ]
 }

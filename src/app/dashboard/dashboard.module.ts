@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { CoursesModule } from './pages/courses/courses.module';
 import { UsersModule } from './pages/users/users.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { EnrollmentsModule } from './pages/enrollments/enrollments.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     SharedModule,
     AlumnsModule,
     CoursesModule,
+    EnrollmentsModule,
     MatListModule,
     UsersModule,
     DashboardRoutingModule,

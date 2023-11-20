@@ -37,6 +37,11 @@ import { adminGuard } from '../core/guards/admin.guard';
             .then(m => m.CoursesRoutingModule)
           },
           {
+            path: 'enrollments',
+            loadChildren: () => import('./pages/enrollments/enrollments-routing.module')
+            .then(m => m.EnrollmentsRoutingModule)
+          },
+          {
             path: '**',
             redirectTo: 'home',
           },

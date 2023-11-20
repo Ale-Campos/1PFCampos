@@ -5,6 +5,7 @@
       <div [hidden]="(userRole$ | async) !== 'admin'">
         <mat-list-item  role="listitem" routerLink="users"><a>Usuarios</a></mat-list-item>
       </div>
+      <mat-list-item role="listitem" routerLink="enrollments"><a>Inscripciones</a></mat-list-item>
       <mat-list-item role="listitem" routerLink="alumns"><a>Alumnos</a></mat-list-item>
       <mat-list-item role="listitem" routerLink="courses"><a>Cursos</a></mat-list-item>
       <mat-list-item (click)="logOut()" role="listitem" routerLink="auth"><a>Cerrar Sesión</a></mat-list-item>
