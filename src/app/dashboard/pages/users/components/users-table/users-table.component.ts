@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, map } from 'rxjs';
+import { selectAuthUser } from 'src/app/store/auth/auth.selector';
 import { User } from 'src/data/Users';
 
 @Component({
@@ -7,6 +10,12 @@ import { User } from 'src/data/Users';
   styleUrls: ['./users-table.component.scss']
 })
 export class UsersTableComponent {
+
+  userRole: Observable<'admin' | 'tested' | undefined>;
+  
+  constructor(private store: Store) {
+    this.userRole  = this.store.select(selectAuthUser).pipe(map(user => user?.role));
+  }
 
   @Input()
   dataSource!: User[];

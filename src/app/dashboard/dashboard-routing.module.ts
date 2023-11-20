@@ -6,6 +6,7 @@ import { AlumnsComponent } from './pages/alumns/alumns.component';
 import { AlumnDetailComponent } from './pages/alumns/components/alumn-detail/alumn-detail.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { DashboardComponent } from './dashboard.component';
+import { adminGuard } from '../core/guards/admin.guard';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { DashboardComponent } from './dashboard.component';
           {
             path: 'users',
             loadChildren: () => import('./pages/users/users-routing.module')
-            .then(m => m.UsersRoutingModule)
+            .then(m => m.UsersRoutingModule),
+            canActivate: [adminGuard],
           },
           {
             path: 'alumns',

@@ -49,6 +49,7 @@
             color="warn"
             aria-label="Example icon button with a delete icon"
             value="{{element.id}}"
+            [disabled]="(userRole | async) !== 'admin'"
             (click)="userDelete.emit(element.id)"
           >
             <mat-icon>delete</mat-icon>

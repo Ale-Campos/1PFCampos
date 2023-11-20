@@ -5,6 +5,6 @@ export interface User {
     username: string;
     email: string;
     password: string;
-    role: string;
+    role: 'admin' | 'tested';
     token: string;
 }
