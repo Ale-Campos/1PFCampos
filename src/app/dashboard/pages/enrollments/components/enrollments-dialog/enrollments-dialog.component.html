@@ -1,0 +1,35 @@
+<div mat-dialog-content>
+  <form [formGroup]="enrollmentForm" class="row">
+    <div class="col-6">
+      <mat-form-field class="w-100">
+        <mat-label>Curso</mat-label>
+        <mat-select formControlName="courseId">
+          <mat-option
+            [value]="course.id"
+            *ngFor="let course of coursesOptions$ | async"
+          >
+            {{ course.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col6">
+      <mat-form-field class="w-100">
+        <mat-label>Alumno</mat-label>
+        <mat-select formControlName="alumnId">
+          <mat-option
+            [value]="alumn.id"
+            *ngFor="let alumn of alumnsOptions$ | async"
+          >
+            {{ alumn.name }} {{ alumn.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close type="button" >Cancelar</button>
+    <button mat-button (click)="onSubmit()" type="button">Guardar</button>
+</div>

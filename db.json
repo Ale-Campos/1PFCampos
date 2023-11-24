@@ -46,7 +46,7 @@
       "password": "testedUser1",
       "role": "tested",
       "token": "testedUser1234567"
-  }
+    }
   ],
   "courses": [
     {
@@ -111,9 +111,19 @@
   ],
   "enrollments": [
     {
-      "id":"1",
+      "id": "1",
       "courseId": "1",
       "alumnId": "1"
+    },
+    {
+      "courseId": "2",
+      "alumnId": "2",
+      "id": "YUcFC-x"
+    },
+    {
+      "courseId": "2",
+      "alumnId": "3",
+      "id": "FGPgBqd"
     }
   ]
 }
