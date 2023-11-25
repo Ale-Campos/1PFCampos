@@ -56,10 +56,10 @@
       "endDate": "Fri Nov 04 2023 14:30:00 GMT-0500 (Eastern Standard Time)"
     },
     {
-      "id": "2",
       "name": "Angular",
-      "startDate": "Fri Oct 04 2023 14:30:00 GMT-0500 (Eastern Standard Time)",
-      "endDate": "Fri Nov 04 2023 14:30:00 GMT-0500 (Eastern Standard Time)"
+      "startDate": "2023-11-06T03:00:00.000Z",
+      "endDate": "2023-11-30T03:00:00.000Z",
+      "id": "2"
     },
     {
       "id": "3",
