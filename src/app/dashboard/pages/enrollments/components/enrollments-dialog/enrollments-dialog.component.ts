@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { EnrollmentActions } from '../../store/enrollment.actions';
@@ -8,9 +8,10 @@ import {
   selectAlumnOptions,
   selectCourseOptions,
 } from '../../store/enrollment.selectors';
-import { Observable, take } from 'rxjs';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Observable, map, take } from 'rxjs';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Actions, ofType } from '@ngrx/effects';
+import { Enrollment } from 'src/data/Enrollment';
 
 @Component({
   selector: 'app-enrollments-dialog',
@@ -27,7 +28,8 @@ export class EnrollmentsDialogComponent {
     private formBuilder: FormBuilder,
     private store: Store,
     private matDialogRef: MatDialogRef<EnrollmentsDialogComponent>,
-    private actions$: Actions
+    private actions$: Actions,
+    @Inject(MAT_DIALOG_DATA) public data?: Observable<Enrollment | null>
   ) {
     this.enrollmentForm = this.formBuilder.group({
       courseId: ['', [Validators.required]],
@@ -41,15 +43,27 @@ export class EnrollmentsDialogComponent {
       .subscribe({
         next: () => this.matDialogRef.close(),
       });
+    if (this.data) {
+
+      this.data.subscribe({
+        next: (value) =>{
+          this.enrollmentForm.patchValue({
+            courseId: value?.courseId,
+            alumnId: value?.alumnId
+          })
+        }
+      })
+    }
   }
 
   onSubmit(): void {
     if (this.enrollmentForm.invalid) {
       this.enrollmentForm.markAllAsTouched();
     } else {
-      this.store.dispatch(
-        EnrollmentActions.createEnrollment({ data: this.enrollmentForm.value })
-      );
+      // this.store.dispatch(
+      //   EnrollmentActions.createEnrollment({ data: this.enrollmentForm.value })
+      // );
+      this.matDialogRef.close(this.enrollmentForm.value);
     }
   }
 }

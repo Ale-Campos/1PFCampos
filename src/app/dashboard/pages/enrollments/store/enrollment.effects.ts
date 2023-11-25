@@ -72,6 +72,20 @@ export class EnrollmentEffects {
     );
   });
 
+  updateEnrollment$ = createEffect(() =>{
+    return this.actions$.pipe(
+      ofType(EnrollmentActions.updateEnrollment),
+      concatMap(({id, data}) => {
+        return(
+          this.updateEnrollment(id, data).pipe(
+            map((data) => EnrollmentActions.loadEnrollments()),
+            catchError((error) => of(EnrollmentActions.updateEnrollmentFailure({error})))
+          )
+        )
+      })
+    )
+  })
+
   constructor(private actions$: Actions, private httpClient: HttpClient) {}
 
   getEnrollments(): Observable<Enrollment[]> {
@@ -108,5 +122,13 @@ export class EnrollmentEffects {
     return this.httpClient.get<Enrollment>(
       `${environments.baseUrl}/enrollments/${id}?_expand=alumn&_expand=course`
     );
+  }
+
+  updateEnrollment(id:string, enrollment:Enrollment) {
+    return this.httpClient.put<Enrollment>(`${environments.baseUrl}/enrollments/${id}`,
+    {
+      alumnId: enrollment.alumnId,
+      courseId: enrollment.courseId
+    })
   }
 }

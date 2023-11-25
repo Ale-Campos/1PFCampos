@@ -16,9 +16,12 @@ export class EnrollmentsComponent {
   }
 
   enrollmentCreate(): void {
-    this.matDialog.open(EnrollmentsDialogComponent);
+    this.matDialog.open(EnrollmentsDialogComponent).afterClosed().subscribe({
+      next: (value) => {
+        if(value) {
+          this.store.dispatch(EnrollmentActions.createEnrollment({data: value}))
+        }
+      }
+    });
   }
-
-
-
 }
