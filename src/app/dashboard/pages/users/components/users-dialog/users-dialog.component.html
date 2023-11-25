@@ -1,56 +1,58 @@
-<h1 mat-dialog-title>
-    Crear curso
-</h1>
-<div mat-dialog-content>
-    <form class="row" [formGroup]="userForm">
-        <mat-form-field class="col-12">
-            <mat-label>Nombre</mat-label>
-            <input matInput formControlName="name" type="text">
-            <mat-error>
-                {{ userForm.get("name")?.errors | formErrors }}
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field class="col-12">
-            <mat-label>Apellido</mat-label>
-            <input matInput formControlName="lastname" type="text">
-            <mat-error>
-                {{ userForm.get("lastname")?.errors | formErrors }}
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field class="col-12">
-            <mat-label>Usuario</mat-label>
-            <input matInput formControlName="username" type="text">
-            <mat-error>
-                {{ userForm.get("username")?.errors | formErrors }}
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field class="col-12">
-            <mat-label>Rol</mat-label>
-            <input matInput formControlName="role" type="text">
-            <mat-error>
-                {{ userForm.get("role")?.errors | formErrors }}
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field class="col-12">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" type="text">
-            <mat-error>
-                {{ userForm.get("email")?.errors | formErrors }}
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field class="col-12">
-            <mat-label>Contraseña</mat-label>
-            <input matInput formControlName="password" type="text">
-            <mat-error>
-                {{ userForm.get("password")?.errors | formErrors }}
-            </mat-error>
-        </mat-form-field>
-    </form>
+<div style="width: 40vw;">
+    <h1 mat-dialog-title>
+        Crear Usuaio
+    </h1>
+    <div mat-dialog-content>
+        <form class="row" [formGroup]="userForm">
+            <mat-form-field class="col-6">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" type="text">
+                <mat-error>
+                    {{ userForm.get("name")?.errors | formErrors }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-6">
+                <mat-label>Apellido</mat-label>
+                <input matInput formControlName="lastname" type="text">
+                <mat-error>
+                    {{ userForm.get("lastname")?.errors | formErrors }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-4">
+                <mat-label>Usuario</mat-label>
+                <input matInput formControlName="username" type="text">
+                <mat-error>
+                    {{ userForm.get("username")?.errors | formErrors }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-4">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="text">
+                <mat-error>
+                    {{ userForm.get("email")?.errors | formErrors }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-4">
+                <mat-label>Rol</mat-label>
+                <input matInput formControlName="role" type="text">
+                <mat-error>
+                    {{ userForm.get("role")?.errors | formErrors }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" type="text">
+                <mat-error>
+                    {{ userForm.get("password")?.errors | formErrors }}
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>
+            Cancelar
+        </button>
+        <button mat-button (click)="onSubmit()">Guradar</button>
+    </div>
+    
 </div>
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close>
-        Cancelar
-    </button>
-    <button mat-button (click)="onSubmit()">Guradar</button>
-</div>
-  
