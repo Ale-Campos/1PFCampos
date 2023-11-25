@@ -8,6 +8,7 @@ import { EnrollmentsComponent } from './enrollments.component';
 import { EnrollmentsTableComponent } from './components/enrollments-table/enrollments-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EnrollmentsDialogComponent } from './components/enrollments-dialog/enrollments-dialog.component';
+import { EnrollmentDetailsComponent } from './components/enrollment-details/enrollment-details.component';
 
 
 
@@ -15,7 +16,8 @@ import { EnrollmentsDialogComponent } from './components/enrollments-dialog/enro
   declarations: [
     EnrollmentsComponent,
     EnrollmentsTableComponent,
-    EnrollmentsDialogComponent
+    EnrollmentsDialogComponent,
+    EnrollmentDetailsComponent
   ],
   imports: [
     CommonModule,

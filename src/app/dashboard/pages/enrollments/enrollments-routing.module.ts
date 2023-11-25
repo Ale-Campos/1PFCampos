@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { EnrollmentsComponent } from './enrollments.component';
+import { EnrollmentDetailsComponent } from "./components/enrollment-details/enrollment-details.component";
 
 @NgModule({
     imports: [
@@ -8,6 +9,10 @@ import { EnrollmentsComponent } from './enrollments.component';
             {
                 path: '',
                 component: EnrollmentsComponent,
+            },
+            {
+                path: 'details',
+                component: EnrollmentDetailsComponent
             }
         ])
     ],

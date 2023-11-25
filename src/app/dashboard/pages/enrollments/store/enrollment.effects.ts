@@ -106,7 +106,7 @@ export class EnrollmentEffects {
 
   getEnrollmentDetails(id: string): Observable<Enrollment> {
     return this.httpClient.get<Enrollment>(
-      `${environments.baseUrl}/enrollments/${id}`
+      `${environments.baseUrl}/enrollments/${id}?_expand=alumn&_expand=course`
     );
   }
 }
