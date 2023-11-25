@@ -53,5 +53,7 @@ export class EnrollmentsTableComponent {
     })
   }
 
-  enrollmentDelete(id: string): void {}
+  enrollmentDelete(id: string): void {
+    this.store.dispatch(EnrollmentActions.deleteEnrollment({id}));
+  }
 }

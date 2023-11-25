@@ -86,6 +86,21 @@ export class EnrollmentEffects {
     )
   })
 
+  deleteEnrollment$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(EnrollmentActions.deleteEnrollment),
+      concatMap((action) => {
+        return (
+          this.deleteEnrollment(action.id).pipe(
+            map(() => EnrollmentActions.loadEnrollments()),
+            catchError((error) => of(EnrollmentActions.loadEnrollmentsFailure({error})))
+          )
+        )
+      }),
+
+    )
+  })
+
   constructor(private actions$: Actions, private httpClient: HttpClient) {}
 
   getEnrollments(): Observable<Enrollment[]> {
@@ -130,5 +145,9 @@ export class EnrollmentEffects {
       alumnId: enrollment.alumnId,
       courseId: enrollment.courseId
     })
+  }
+
+  deleteEnrollment(id:string) {
+   return this.httpClient.delete<Enrollment>(`${environments.baseUrl}/enrollments/${id}`);
   }
 }
