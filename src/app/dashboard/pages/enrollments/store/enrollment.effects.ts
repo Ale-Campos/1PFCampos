@@ -34,25 +34,43 @@ export class EnrollmentEffects {
           map((response) =>
             EnrollmentActions.loadEnrollmentsDialogOptionsSuccess(response)
           ),
-          catchError((error) => of(EnrollmentActions.loadEnrollmentsDialogOptionsFailure({error})))
+          catchError((error) =>
+            of(EnrollmentActions.loadEnrollmentsDialogOptionsFailure({ error }))
+          )
         )
       )
     );
   });
 
-  createEnrollment$ = createEffect(()=>{
+  createEnrollment$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(EnrollmentActions.createEnrollment),
       concatMap((action) => {
         return this.createEnrollment(action.data).pipe(
-          map((response) =>
-            EnrollmentActions.loadEnrollments()
-          ),
-          catchError((error) => of(EnrollmentActions.createEnrollmentFailure({error})))
-        )
+          map((response) => EnrollmentActions.loadEnrollments()),
+          catchError((error) =>
+            of(EnrollmentActions.createEnrollmentFailure({ error }))
+          )
+        );
       })
-    )
-  })
+    );
+  });
+
+  detailEnrollment$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(EnrollmentActions.loadEnrollmentDetail),
+      concatMap((action) => {
+        return (
+          this.getEnrollmentDetails(action.id).pipe(
+            map((data) =>
+              EnrollmentActions.loadEnrollmentDetailSuccess({ data })
+            ),
+            catchError((error) => of(EnrollmentActions.loadEnrollmentDetailFailure({error})))
+          )
+        );
+      })
+    );
+  });
 
   constructor(private actions$: Actions, private httpClient: HttpClient) {}
 
@@ -80,6 +98,15 @@ export class EnrollmentEffects {
   }
 
   createEnrollment(data: CreateEnrollmentData): Observable<Enrollment> {
-    return this.httpClient.post<Enrollment>(`${environments.baseUrl}/enrollments`, data)
+    return this.httpClient.post<Enrollment>(
+      `${environments.baseUrl}/enrollments`,
+      data
+    );
+  }
+
+  getEnrollmentDetails(id: string): Observable<Enrollment> {
+    return this.httpClient.get<Enrollment>(
+      `${environments.baseUrl}/enrollments/${id}`
+    );
   }
 }
