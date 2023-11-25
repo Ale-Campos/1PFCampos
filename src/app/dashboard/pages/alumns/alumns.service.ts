@@ -49,7 +49,7 @@ export class AlumnsService {
       id: newAlumn.id,
       lastName: newAlumn.lastName,
       name: newAlumn.name,
-      course: newAlumn.course
+      dni: newAlumn.dni
     }).subscribe({
       next: () => {
         this.getAlumns$();
@@ -68,7 +68,7 @@ export class AlumnsService {
       id: payload.id,
       lastName: payload.lastName,
       name: payload.name,
-      course: payload.course
+      dni: payload.dni
     }).subscribe({
       next: () => {
         this.getAlumns$();

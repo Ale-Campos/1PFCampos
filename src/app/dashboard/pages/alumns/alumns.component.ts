@@ -19,7 +19,7 @@ export class AlumnsComponent {
   }
 
   
-  columns = ['id', 'name', 'email', 'course', 'actions'];
+  columns = ['id', 'name', 'email', 'dni', 'actions'];
 
   public alumnCreate(): void {
     this.matDialog
@@ -34,7 +34,7 @@ export class AlumnsComponent {
               name: value.name,
               lastName: value.lastName,
               email: value.email,
-              course: value.course
+              dni: value.dni
             });
           }
         },

@@ -3,5 +3,5 @@ export interface IAlumn {
     name: string;
     lastName: string;
     email: string;
-    course: string;
+    dni: string;
 }

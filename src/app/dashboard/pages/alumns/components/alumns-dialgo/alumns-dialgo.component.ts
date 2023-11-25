@@ -20,7 +20,7 @@ export class AlumnsDialgoComponent {
       name:["" , [Validators.required]],
       lastName:["" , [Validators.required]],
       email: ["" , [Validators.required, Validators.email]],
-      course: ["" , [Validators.required]],
+      dni: ["" , [Validators.required]],
     });
 
     if(this.data) {

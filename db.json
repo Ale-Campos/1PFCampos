@@ -92,21 +92,28 @@
       "name": "Alejandro",
       "lastName": "Campos",
       "email": "alecampos@gmail.com",
-      "course": "A"
+      "dni": "6573423"
     },
     {
       "id": "2",
       "name": "Melina",
       "lastName": "Perez",
       "email": "melinaperez@gmail.com",
-      "course": "B"
+      "dni": "31945342"
     },
     {
       "id": "3",
       "name": "Alejo",
       "lastName": "Schmidt",
       "email": "alejoschmidt@gmail.com",
-      "course": "C"
+      "dni": "35241524"
+    },
+    {
+      "email": "ALE@TEST.COM",
+      "id": "1700946193460",
+      "lastName": "CAMPOS",
+      "name": "aLE",
+      "dni": "65342342"
     }
   ],
   "enrollments": [
