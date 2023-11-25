@@ -18,7 +18,7 @@
               <div class="row">
                 <mat-form-field>
                   <mat-label>Contraseña</mat-label>
-                  <input formControlName="password" matInput />
+                  <input type="password" formControlName="password" matInput />
                   <mat-error>
                     {{ loginForm.get("username")?.errors | formErrors }}
                   </mat-error>

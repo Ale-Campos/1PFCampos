@@ -29,7 +29,7 @@
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
           <button
-            mat-fab
+            mat-icon-button
             color="primary"
             aria-label="Example icon button with a delete icon"
             (click)="userDetail.emit(element.id)"
@@ -37,7 +37,7 @@
             <mat-icon>visibility</mat-icon>
           </button>
           <button
-            mat-fab
+            mat-icon-button
             color="accent"
             aria-label="Example icon button with a delete icon"
             (click)="userEdit.emit(element)"
@@ -45,7 +45,7 @@
             <mat-icon>edit</mat-icon>
           </button>
           <button
-            mat-fab
+            mat-icon-button
             color="warn"
             aria-label="Example icon button with a delete icon"
             value="{{element.id}}"
@@ -61,12 +61,3 @@
       <tr mat-row *matRowDef="let row; columns: columns"></tr>
     </table>
   </div>
-  <!-- <div class="btn-create-container">
-    <button class="btn-create"
-      mat-raised-button
-      color="primary"
-      (click)="alumnCreate()"
-    >
-      <mat-icon>add</mat-icon> Crear Alumno
-    </button>
-  </div> -->
