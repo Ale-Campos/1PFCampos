@@ -4,6 +4,14 @@
   margin: auto;
 }
 
+.btn-create-container {
+  width: 50vw;
+  margin-top: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
 th {
     text-align: center;
 }
@@ -12,5 +20,13 @@ td {
     text-align: center;
 }
 
-
+h2 {
+  display: inline-block;
+  background-color: #673ab7;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 26px;
+  color: white;
+  font-size: 30px;
+}
 

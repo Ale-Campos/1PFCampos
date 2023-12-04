@@ -1,3 +1,13 @@
+<h2>Usuarios</h2>
+<div class="btn-create-container">
+    <button class="btn-create"
+      mat-raised-button
+      color="primary"
+      (click)="userCreate()"
+    >
+      <mat-icon>add</mat-icon> Crear Alumno
+    </button>
+</div>
 <app-users-table
 [dataSource]="(users | async) || [] "
 [columns]="columns"
@@ -5,10 +15,3 @@
 (userDelete)="userDelete($event)"
 (userDetail)="userDetail($event)"
 ></app-users-table>
-
-<div class="d-flex justify-content-end">
-    <button (click)="userCreate()" mat-flat-button color="primary">
-       <mat-icon>add</mat-icon> Crear Usuario
-    </button>
-</div>
-

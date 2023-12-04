@@ -1,7 +1,11 @@
-<h1>Inscripciones</h1>
-<div class="d-flex justify-content-end">
-    <button class="" (click)="enrollmentCreate()" mat-flat-button color="primary">
-        Crear inscripción
+<h2>Inscripciones</h2>
+<div class="btn-create-container">
+    <button class="btn-create"
+      mat-raised-button
+      color="primary"
+      (click)="enrollmentCreate()"
+    >
+      <mat-icon>add</mat-icon> Crear Alumno
     </button>
 </div>
 <app-enrollments-table></app-enrollments-table>
