@@ -1,6 +1,6 @@
 <div style="width: 40vw;">
     <h1 mat-dialog-title>
-        Crear Usuaio
+        {{data? "Editar": "Crear"}} usuario
     </h1>
     <div mat-dialog-content>
         <form class="row" [formGroup]="userForm">
@@ -52,7 +52,7 @@
         <button mat-button mat-dialog-close>
             Cancelar
         </button>
-        <button mat-button (click)="onSubmit()">Guradar</button>
+        <button mat-button (click)="onSubmit()">Guradar {{data? "cambios": ""}}</button>
     </div>
     
 </div>

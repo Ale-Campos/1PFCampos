@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>
-  {{ data ? (data.edit ? "Editar" : "Detalle") : "Crear" }}
+  {{ data ? "Editar" : "Crear" }} alumno
 </h1>
 <div mat-dialog-content>
   <form [formGroup]="alumnForm">
@@ -53,10 +53,10 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>
-    {{ data ? (data.edit ? "Cancelar" : "Cerrar") : "Cancelar" }}
+    Cancelar
   </button>
-  <ng-container *ngIf="!data || data.edit">
-    <button mat-button (click)="onSubmit()">Guardar</button>
+  <ng-container *ngIf="!data || data">
+    <button mat-button (click)="onSubmit()">{{data? "Guardar cambios": "Guardar"}}</button>
   </ng-container>
   
 </div>

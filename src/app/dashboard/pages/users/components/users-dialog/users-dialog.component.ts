@@ -13,7 +13,7 @@ export class UsersDialogComponent {
   constructor(
     private matDialogRef: MatDialogRef<UsersDialogComponent>,
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) private data?: User
+    @Inject(MAT_DIALOG_DATA) public data?: User
   ) {
     this.userForm = this.formBuilder.group({
       name: ['', Validators.required],

@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>
-  Crear Inscripción
+  {{data? "Editar": "Crear"}} inscripción
 </h1>
 <div mat-dialog-content>
   <form [formGroup]="enrollmentForm" class="row">
@@ -40,5 +40,5 @@
 
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close type="button" >Cancelar</button>
-    <button mat-button (click)="onSubmit()" type="button">Guardar</button>
+    <button mat-button (click)="onSubmit()" type="button">Guardar {{data? "cambios":""}}</button>
 </div>
