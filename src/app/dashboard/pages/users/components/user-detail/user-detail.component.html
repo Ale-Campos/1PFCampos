@@ -1,6 +1,17 @@
-<div style="text-align: center;">
-    <h2>{{(user$ | async)?.name}}</h2>
-    <h2>{{(user$ | async)?.lastname}}</h2>
-    <h2>{{(user$ | async)?.username}}</h2>
-    <h2>{{(user$ | async)?.email}}</h2>
+<h2 class="title">Detalle</h2>
+<div class="container details-container">
+    <div class="row details">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 content">
+                    <h2><span>Nombre:</span> {{(user$ | async)?.name}}</h2>
+                    <h2><span>Apellido:</span> {{(user$ | async)?.lastname}}</h2>
+                </div>
+                <div class="col-12 content">
+                    <h2><span>Usuario:</span> {{(user$ | async)?.username}}</h2>
+                    <h2><span>Email:</span> {{(user$ | async)?.email}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
