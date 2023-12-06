@@ -1,3 +1,13 @@
-<p>enrollment-details works!</p>
-<h1>{{(enrollment$ | async)?.course?.name}}</h1>
-<h1>{{(enrollment$ | async)?.alumn?.name}}</h1>
+<h2 class="title">Detalle</h2>
+<div class="container details-container">
+    <div class="row details">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 content">
+                    <h2><span>Nombre:</span> {{(enrollment$ | async)?.course?.name}}</h2>
+                    <h2><span>Apellido:</span> {{(enrollment$ | async)?.alumn?.name}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
