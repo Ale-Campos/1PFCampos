@@ -3,6 +3,10 @@ import { LoginComponent } from './login.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+import { AuthState } from 'src/app/store/auth/auth.reducer';
+import { selectAuthUser } from 'src/app/store/auth/auth.selector';
+
 
 describe('LoginComponent', () => {
   let testedComponent: LoginComponent;
@@ -11,6 +15,17 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [CommonModule, SharedModule, HttpClientTestingModule],
+      providers: [provideMockStore<AuthState>({
+        initialState: {
+          authUser: null
+        },
+        selectors: [
+          {
+            selector: selectAuthUser, 
+            value: { id: 'testedUser', name: 'Tested', lastname: 'User', email: 'tested@user.com', username: 'tsestedUser', password: 'testedUser1', role: 'tested', token: 'testedUser1234567'}
+          }
+        ]
+      })]
     });
 
     testedComponent = TestBed.createComponent(LoginComponent).componentInstance;

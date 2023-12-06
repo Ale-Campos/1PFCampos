@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { environments } from 'src/environments/environment.local';
 import { MockProvider } from 'ng-mocks';
 import { Router } from '@angular/router';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('AuthService', () => {
   let testedService: AuthService;
@@ -18,7 +19,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [MockProvider(Router)],
+      providers: [MockProvider(Router), provideMockStore({})],
     });
     testedService = TestBed.inject(AuthService);
     httpController = TestBed.inject(HttpTestingController);
