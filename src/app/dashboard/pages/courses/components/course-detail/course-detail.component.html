@@ -1,5 +1,16 @@
-<div style="text-align: center;">
-    <h2>{{(course | async)?.name }}</h2>
-    <h2>{{(course | async)?.startDate | date }}</h2>
-    <h2>{{(course | async)?.endDate | date}}</h2>
+<h2 class="title">Detalle</h2>
+<div class="container details-container">
+    <div class="row details">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 content">
+                    <h2><span>Nombre:</span> {{(course | async)?.name}}</h2>
+                </div>
+                <div class="col-12 content">
+                    <h2><span>Fecha inicio:</span> {{(course | async)?.startDate | date}}</h2>
+                    <h2><span>Fecha Fin:</span> {{(course | async)?.endDate | date}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
