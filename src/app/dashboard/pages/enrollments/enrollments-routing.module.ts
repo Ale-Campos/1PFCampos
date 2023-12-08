@@ -11,7 +11,7 @@ import { EnrollmentDetailsComponent } from "./components/enrollment-details/enro
                 component: EnrollmentsComponent,
             },
             {
-                path: 'details',
+                path: 'details/:id',
                 component: EnrollmentDetailsComponent
             }
         ])

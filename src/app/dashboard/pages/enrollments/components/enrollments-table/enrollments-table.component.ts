@@ -34,9 +34,11 @@ export class EnrollmentsTableComponent {
   }
 
   enrollmentDetail(id: string): void {
-    this.store.dispatch(EnrollmentActions.loadEnrollmentDetail({ id }));
-    this.detail$ = this.store.select(selectEnrollmentDetail);
-    this.router.navigate(['dashboard', 'enrollments', 'details']);
+    // this.store.dispatch(EnrollmentActions.loadEnrollmentDetail({ id }));
+    // this.detail$ = this.store.select(selectEnrollmentDetail);
+    console.log(id);
+    
+    this.router.navigate(['dashboard', 'enrollments', 'details', id]);
   }
 
   enrollmentEdit(id: string): void {
